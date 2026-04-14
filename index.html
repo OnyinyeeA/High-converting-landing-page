@@ -40,12 +40,6 @@ body { font-family: 'Segoe UI', Tahoma, sans-serif; margin: 0; line-height: 1.6;
     padding: 0 20px;
 }
 
-.nav-brand {
-    font-size: 1.1rem;
-    color: var(--white);
-    letter-spacing: 1px;
-}
-
 .nav-timer {
     color: var(--yellow);
     font-weight: bold;
@@ -75,8 +69,7 @@ body { font-family: 'Segoe UI', Tahoma, sans-serif; margin: 0; line-height: 1.6;
         flex-direction: column;
         gap: 8px;
     }
-    .nav-brand { display: none; } /* Hide name on mobile to save space for the timer */
-    body { padding-top: 90px; }
+    body { padding-top: 90px;}
 }
 
 /* Hero */
@@ -88,6 +81,13 @@ h1 { font-size: 3rem; color: var(--dark-blue); margin-bottom: 20px; }
 .btn-primary:hover { background: var(--dark-blue); }
 .sub-headline { font-size: 1.2rem; color: #2e2c2c; font-weight: 500; margin-bottom: 40px; }
 .cta-group { display: flex; justify-content: center; gap: 20px; }
+
+@media (max-width: 768px) {
+    .tagline { font-size: 1.8rem; }
+    h1 { font-size: 2rem; }
+    .sub-headline { font-size: 1rem; }
+    .btn-primary { padding: 15px 30px; font-size: 1rem; }
+}
 
 
 /* --- SLOT COUNTER --- */
@@ -168,7 +168,7 @@ h1 { font-size: 3rem; color: var(--dark-blue); margin-bottom: 20px; }
     line-height: 1.2;
 }
 
-/* --- THE FIX: MOBILE STYLES --- */
+/* --- MOBILE STYLES --- */
 @media (max-width: 768px) {
     .mentor-section {
         padding: 10px 0;
@@ -181,6 +181,13 @@ h1 { font-size: 3rem; color: var(--dark-blue); margin-bottom: 20px; }
 
     .mentor-text h2 {
         font-size: 1.8rem; /* Smaller text for mobile screens */
+    }
+
+    .mentor-text p {
+        font-size: 1rem; /* Adjust paragraph size for readability */
+        color: #2e2c2c; /* Slightly lighter color for better contrast on mobile */
+        padding: 0 20px; /* Adds padding to prevent text from touching screen edges */
+        margin: 0 auto 20px; /* Centers text and adds bottom margin */
     }
 
     .mentor-img {
@@ -259,7 +266,7 @@ h1 { font-size: 3rem; color: var(--dark-blue); margin-bottom: 20px; }
 }
 
 .status-tag.million {
-    background-color: #25D366; /* WhatsApp Green/Tech Green */
+    background-color: #25D366;
     color: white;
 }
 
@@ -274,13 +281,13 @@ h1 { font-size: 3rem; color: var(--dark-blue); margin-bottom: 20px; }
 .gallery-item {
     border-radius: 12px;
     overflow: hidden;
-    position: relative; /* Needed for text overlay/shadow effect */
+    position: relative;
 }
 
 .gallery-item img {
     width: 100%;
-    height: 400px; /* Force consistent height for uniformity */
-    object-fit: cover; /* Key: keeps images looking professional */
+    height: 400px;
+    object-fit: cover;
     display: block;
 }
 
@@ -326,16 +333,12 @@ input, select { width: 100%; padding: 12px; margin: 10px 0; border: 1px solid #c
 <body>
     <nav class="sticky-nav">
         <div class="nav-container">
-            <div class="nav-brand">
-                <strong>Dr. Gideon Alugbue</strong>
-            </div>
-        
             <div class="nav-timer">
                 <span>Ends in: <span id="countdown-timer">00:00:00</span></span>
             </div>
 
             <div class="nav-cta">
-                <button onclick="scrollToForm()" class="btn-nav">Secure My Slot - ₦3,999</button>
+                <button onclick="scrollToForm()" class="btn-nav">Secure My Slot - ₦2,999</button>
             </div>
         </div>
     </nav>
@@ -347,7 +350,7 @@ input, select { width: 100%; padding: 12px; margin: 10px 0; border: 1px solid #c
             <p class="sub-headline">Join my 3-week intensive bootcamp and learn the exact roadmap I used to transition from a paycheck-to-paycheck Doctor to a Tech Millionaire.</p>
             
             <div class="cta-group">
-                <button onclick="scrollToForm()" class="btn-primary">Secure Your Slot - ₦3,999</button>
+                <button onclick="scrollToForm()" class="btn-primary">Secure Your Slot - ₦2,999</button>
             </div>
         </div>
 
@@ -364,7 +367,8 @@ input, select { width: 100%; padding: 12px; margin: 10px 0; border: 1px solid #c
         </div>
         <div class="mentor-text">
             <h2>Meet Your Lead Mentor: <br>Dr. Gideon Alugbue</h2>
-            <p>I was once a broke Medical Doctor, living paycheck to paycheck and exhausted. Everything changed when I mastered AI and Tech. Within a year, I tripled my income and built a luxurious life. Now, I’m showing you how to do the same.</p>
+            <p>It was my dream to become a neurosurgeon after medical school. This dream led me into a system that was tideous and unsustainable. I barely had time for myself and could barely maintain a decent lifestyle. An opportunity arose that changed everything. The opportunity lead me to learning tech and AI automation from a friend who was making alot of money in the tech space. I took the leap and it was the best decision I ever made. In just 9 months, I went from earning peanuts to a tech millionaire mentor. Now, I'm on a mission to help others achieve the same transformation and financial freedom that I have. This training is only available to a select few who are ready to take action and change their lives. If you're ready to break free from the 9-5 grind and create a life of abundance, then this mentorship is for you. This training material is worth 100,000naira but I will be teaching it for a fraction of that price because I want to make it accessible to as many people as possible. If you're ready to invest in yourself and your future, then secure your spot now before it's too late for just a token of ₦2,999.
+            </p>
         </div>
     </div>
 </section>
@@ -424,7 +428,7 @@ input, select { width: 100%; padding: 12px; margin: 10px 0; border: 1px solid #c
         
         <div class="cta-center text-center">
             <p>If I could make this change, *you can too*. Learn the roadmap.</p>
-            <button onclick="scrollToForm()" class="btn-primary">Secure My Slot - ₦3,999</button>
+            <button onclick="scrollToForm()" class="btn-primary">Secure My Slot - ₦2,999</button>
         </div>
     </div>
 </section>
@@ -445,13 +449,13 @@ input, select { width: 100%; padding: 12px; margin: 10px 0; border: 1px solid #c
         <div class="container">
             <div class="form-container">
                 <h2>Ready to Transform Your Life?</h2>
-                <p>Fill the form below only if you are ready to pay the <b>₦3,999</b> commitment fee.</p>
+                <p>Fill the form below only if you are ready to pay the <b>₦2,999</b> commitment fee.</p>
                 <form id="whatsappForm">
                     <input type="text" id="name" placeholder="Full Name" required>
                     <input type="email" id="email" placeholder="Email Address" required>
                     <input type="tel" id="phone" placeholder="Phone Number (WhatsApp)" required>
                     <select id="readiness" required>
-                        <option value="">Are you ready to pay ₦3,999 now?</option>
+                        <option value="">Are you ready to pay ₦2,999 now?</option>
                         <option value="Yes">Yes, I am ready to pay</option>
                     </select>
                     <button type="submit" class="btn-submit">Register & Get Payment Link</button>
