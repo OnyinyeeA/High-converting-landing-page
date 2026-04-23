@@ -1,12 +1,12 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>AI Tech Mentorship | Dr. Gideon Alugbue</title>
-</head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AI Tech Mentorship | Dr. Gideon Alugbue</title>
+
 <style>
-    :root {
+:root {
     --primary-blue: #0056b3;
     --dark-blue: #002d5f;
     --yellow: #ffcc00;
@@ -14,531 +14,393 @@
     --gray: #f4f7f6;
 }
 
-body { font-family: 'Segoe UI', Tahoma, sans-serif; margin: 0; line-height: 1.6; color: #333; padding-top: 60px;  }
+body {
+    font-family: 'Segoe UI', Tahoma, sans-serif;
+    margin: 0;
+    line-height: 1.6;
+    color: #333;
+    padding-top: 60px;
+}
+
 .container { max-width: 1100px; margin: auto; padding: 0 20px; }
 
-/* --- STICKY NAVBAR --- */
+/* NAV */
 .sticky-nav {
-    position: fixed; /* Fixed keeps it on screen at all times */
+    position: fixed;
     top: 0;
-    left: 0;
     width: 100%;
     background: var(--dark-blue);
     color: white;
     padding: 12px 0;
-    z-index: 9999; /* Higher than everything else */
-    box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+    z-index: 9999;
     border-bottom: 2px solid var(--yellow);
 }
-
 .nav-container {
-    max-width: 1200px;
-    margin: 0 auto;
     display: flex;
     justify-content: space-between;
     align-items: center;
     padding: 0 20px;
 }
-
-.nav-timer {
-    color: var(--yellow);
-    font-weight: bold;
-    font-family: monospace;
-    font-size: 1.1rem;
-}
-
 .btn-nav {
     background: var(--yellow);
-    color: var(--dark-blue);
-    border: none;
     padding: 8px 18px;
-    border-radius: 5px;
-    font-weight: bold;
+    border: none;
     cursor: pointer;
-    transition: 0.3s;
+    border-radius: 5px;
 }
 
-.btn-nav:hover {
-    background: white;
-    transform: scale(1.05);
+/* HERO */
+.hero {
+    text-align: center;
+    padding: 80px 20px;
 }
-
-/* Mobile Responsive Navbar */
-@media (max-width: 768px) {
-    .nav-container {
-        flex-direction: column;
-        gap: 8px;
-    }
-    body { padding-top: 90px;}
+.tagline {
+    color: var(--primary-blue);
+    font-weight: 900;
+    font-size: 2rem;
 }
-
-/* Hero */
-.hero { background: var(--white); padding: 80px 0; text-align: center; }
-.tagline { color: var(--primary-blue); font-weight: 900; letter-spacing: 1px; font-size: 2.5rem; margin-bottom: 20px; }
-h1 { font-size: 3rem; color: var(--dark-blue); margin-bottom: 20px; }
-.highlight { color: var(--primary-blue); border-bottom: 4px solid var(--yellow); }
-.btn-primary { background: var(--primary-blue); color: white; padding: 20px 40px; border: none; border-radius: 8px; font-size: 1.2rem; cursor: pointer; transition: 0.3s; }
-.btn-primary:hover { background: var(--dark-blue); }
-.sub-headline { font-size: 1.2rem; color: #2e2c2c; font-weight: 500; margin-bottom: 40px; }
-.cta-group { display: flex; justify-content: center; gap: 20px; }
-
-@media (max-width: 768px) {
-    .tagline { font-size: 1.8rem; }
-    h1 { font-size: 2rem; }
-    .sub-headline { font-size: 1rem; }
-    .btn-primary { padding: 15px 30px; font-size: 1rem; }
-    .hero { padding: 40px 20px;}
-}
-
-
-/* --- SLOT COUNTER --- */
-.slot-counter {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 10px;
-    margin: 20px 0;
-    font-weight: 800;
-    font-size: 1.5rem;
-}
-
-.highlight-red {
-    color: #f44336;
-    font-size: 1.3rem;
-    text-decoration: underline;
-}
-
-/* Pulsing Dot Animation */
-.pulse-dot {
-    width: 10px;
-    height: 10px;
-    background-color: #f44336;
-    border-radius: 50%;
-    box-shadow: 0 0 0 rgba(244, 67, 54, 0.4);
-    animation: pulse 1.5s infinite;
-}
-
-@keyframes pulse {
-    0% { box-shadow: 0 0 0 0 rgba(244, 67, 54, 0.7); }
-    70% { box-shadow: 0 0 0 10px rgba(244, 67, 54, 0); }
-    100% { box-shadow: 0 0 0 0 rgba(244, 67, 54, 0); }
-}
-
-/* Mentor Section */
-.mentor-section { background: var(--gray); padding: 60px 0; }
-.grid { display: grid; grid-template-columns: 1fr 1fr; gap: 40px; align-items: center; }
-.img-placeholder {height: 400px; display: flex; align-items: center; justify-content: center; border-radius: 15px; font-weight: bold; }
-.img-placeholder img { width: 65%; height: 100%; object-fit: cover; border-radius: 15px; }
-.mentor-text h2 { color: var(--dark-blue); margin-bottom: 20px; }
-.mentor-text p { font-size: 1.1rem; color: #555; }
-
-/* --- IMPROVED MENTOR SECTION --- */
-.mentor-section { 
-    background: var(--gray); 
-    padding: 60px 0; 
-    overflow: hidden; /* Prevents horizontal scrolling */
-}
-
-/* Base Grid: Side-by-side for Desktop */
-.mentor-grid { 
-    display: flex; /* Flex is often more reliable for alignment than Grid here */
-    flex-wrap: wrap; /* Allows items to wrap to next line on mobile */
-    gap: 40px; 
-    align-items: center; 
-}
-
-.mentor-img, .mentor-text {
-    flex: 1;
-    min-width: 300px;
-}
-
-.mentor-img img, .img-placeholder { 
-    width: 50%; 
-    max-width: 300px;
-    height: 100%; 
-    border-radius: 15px; 
-    box-shadow: 0 10px 20px rgba(0,0,0,0.1);
-    margin: 0 auto;
-    display: block;
-}
-
-.mentor-text h2 {
-    font-size: 2.2rem;
+h1 {
+    font-size: 2.5rem;
     color: var(--dark-blue);
-    margin-bottom: 20px;
-    line-height: 1.2;
+}
+.btn-primary {
+    background: var(--primary-blue);
+    color: white;
+    padding: 15px 30px;
+    border: none;
+    cursor: pointer;
+    padding: 15px 30px;
+    font-size: 1.1rem;
+    font-weight: bold;
+    border-radius: 5px;
 }
 
-/* --- MOBILE STYLES --- */
-@media (max-width: 768px) {
-    .mentor-section {
-        padding: 10px 0;
-    }
-
-    .mentor-grid {
-        flex-direction: column; /* Stacks image on top of text */
-        text-align: center; /* Centers text for better mobile aesthetic */
-    }
-
-    .mentor-text h2 {
-        font-size: 1.8rem; /* Smaller text for mobile screens */
-    }
-
-    .mentor-text p {
-        font-size: 1rem; /* Adjust paragraph size for readability */
-        color: #2e2c2c; /* Slightly lighter color for better contrast on mobile */
-        padding: 0 20px; /* Adds padding to prevent text from touching screen edges */
-        margin: 0 auto 20px; /* Centers text and adds bottom margin */
-    }
-
-    .mentor-img {
-        margin-bottom: 20px;
-    }
+/* SLOT */
+.slot-counter {
+    text-align: center;
+    font-weight: bold;
+    margin-top: 20px;
+    font-size: 1.5rem;
+    color: #f44336;
 }
 
-/* --- TRANSFORMATION GALLERY --- */
+/* MENTOR */
+.mentor-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1px;
+    align-items: center;
+    padding: 60px 20px;
+}
+.mentor-img img {
+    width: 50%;
+    border-radius: 15px;
+    margin-left: 13rem;
+
+}
+
+/* ===== TRANSFORMATION GALLERY ===== */
 .transformation-gallery {
     padding: 80px 0;
-    background-color: var(--white);
+    background: var(--primary-blue);
 }
 
-.text-center { text-align: center; }
-
-/* We want this gallery to use most of the screen width */
 .container-fluid {
     width: 95%;
-    max-width: 1600px;
-    margin: 0 auto;
+    max-width: 1400px;
+    margin: auto;
 }
 
-/* Grid splits BEFORE and AFTER columns */
 .transformation-grid {
     display: grid;
     grid-template-columns: 1fr 1fr;
     gap: 40px;
-    margin-top: 50px;
-    margin-bottom: 50px;
 }
 
-/* Base styling for both blocks */
 .transform-block {
-    padding: 30px;
+    padding: 25px;
     border-radius: 15px;
-    border: 1px solid #eaeaea;
 }
 
-/* BEFORE BLOCK */
-.before-block {
-    background-color: #f9f9f9;
+.before-block .after-block {
+    background: var(--gray);
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
 }
-
-/* AFTER BLOCK */
 .after-block {
-    background-color: var(--white);
-    box-shadow: 0 10px 30px rgba(0, 86, 179, 0.08);
+    box-shadow: 0 10px 25px rgba(0,0,0,0.05);
 }
 
-/* Header/Titles within blocks */
 .transform-header {
     text-align: center;
-    margin-bottom: 30px;
+    margin-bottom: 20px;
 }
 
-.transform-header h3 {
-    color: var(--dark-blue);
-    font-size: 1.6rem;
-    margin-top: 15px;
-}
-
-/* The Status Tags (Before/After) */
 .status-tag {
     display: inline-block;
-    padding: 8px 15px;
+    padding: 6px 14px;
     border-radius: 20px;
+    font-size: 0.8rem;
     font-weight: bold;
-    font-size: 0.9rem;
-    letter-spacing: 0.5px;
-    text-transform: uppercase;
-}
-
-.status-tag.broke {
-    background-color: #f44336; /* Red for stress */
     color: white;
 }
 
-.status-tag.million {
-    background-color: #25D366;
-    color: white;
-}
+.status-tag.broke { background: #f44336; }
+.status-tag.million { background: #25D366; }
 
-/* The visual layout of the photos (Stacked single column per block) */
 .gallery-column {
-    display: flex;
-    flex-direction: column;
-    gap: 30px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 15px;
 }
 
-/* Individual Image Item */
 .gallery-item {
     border-radius: 12px;
     overflow: hidden;
-    position: relative;
+    height: auto;
 }
 
 .gallery-item img {
     width: 100%;
-    height: 400px;
+    height: 220px;
     object-fit: cover;
-    display: block;
 }
 
-/* Small, clean caption styling */
 .item-caption {
-    background-color: var(--white);
-    color: #555;
-    padding: 15px;
-    font-size: 1.5rem;
-    border-top: 1px solid #eaeaea;
+    padding: 10px;
+    text-align: center;
+    font-size: 1.3rem;
 }
 
-/* Small text centered CTA at bottom of gallery */
-.cta-center { margin-top: 60px; font-weight: bold;}
-.cta-center p { margin-bottom: 20px; color: red; font-size: 1.2rem; }
+.section-title {
+    text-align: center;
+    font-size: 2rem;
+    margin-bottom: 40px;
+    margin-top: 0;
+    color: var(--dark-blue);
+}
+/* FORM */
+.form-section {
+    background: var(--dark-blue);
+    padding: 60px 20px;
+    color: white;
+    text-align: center;
+}
 
+.form-container {
+    background: white;
+    padding: 60px;
+    border-radius: 30px;
+    max-width: 450px;
+    margin: auto;
+    color: #333;
+}
 
-/* --- Responsive (Mobile) Gallery Adjustments --- */
+input, select {
+    width: 100%;
+    padding: 10px;
+    margin: 20px 0;
+    border-radius: 10px;
+    font-size: 17px;
+}
+
+.btn-submit {
+    background: #25D366;
+    color: white;
+    padding: 12px;
+    border: none;
+    cursor: pointer;
+    width: 100%;
+    border-radius: 10px;
+    font-size: 20px;
+}
+
+/* MOBILE */
 @media (max-width: 900px) {
-    .transformation-grid {
-        grid-template-columns: 1fr; /* Stack before and after vertically */
-        gap: 30px;
-    }
-    .gallery-item img {
-        height: 300px; /* Reduce image height on small screens */
-    }
+    .transformation-grid { grid-template-columns: 1fr; }
+    .gallery-column { grid-template-columns: 1fr; width: 70%; margin: 0 auto; }
+    .gallery-item { height: 400px }
+    .gallery-item img { object-fit: cover; object-position: center; }
+     .mentor-grid { grid-template-columns: 1fr; }
+     .mentor-img img { width: 80%; margin: 0 auto; display: block; }
 }
-
-/* Cards */
-.skills-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 20px; padding: 40px 0; }
-.curriculum .card { border: 5px solid var(--primary-blue); background: var(--gray); padding: 20px; border-radius: 10px; text-align: center; box-shadow: 0 4px 8px rgba(0,0,0,0.1); }
-.curriculum .card h3 { color: var(--primary-blue); margin-bottom: 15px; }
-.section-title { text-align: center; color: var(--dark-blue); margin-bottom: 40px; font-size: 2rem; }
-
-/* Form */
-.form-section { padding: 80px 0; background: var(--dark-blue); color: white; text-align: center; }
-.form-container { max-width: 500px; margin: auto; background: white; padding: 40px; border-radius: 15px; color: #333; }
-input, select { width: 100%; padding: 12px; margin: 10px 0; border: 1px solid #ccc; border-radius: 5px; box-sizing: border-box;}
-.btn-submit { width: 100%; background: #25D366; color: white; padding: 15px; border: none; border-radius: 5px; font-size: 1.1rem; cursor: pointer; }
-#registration{ scroll-margin-top: 80px;}
 </style>
+</head>
 
 <body>
-    <nav class="sticky-nav">
-        <div class="nav-container">
-            <div class="nav-timer">
-                <span>Ends in: <span id="countdown-timer">00:00:00</span></span>
-            </div>
 
-            <div class="nav-cta">
-                <button onclick="scrollToForm()" class="btn-nav">Secure My Slot - ₦2,999</button>
-            </div>
-        </div>
-    </nav>
-    
-    <header class="hero">
-        <div class="container">
-            <p class="tagline">PROFITABLE TECH SKILLS MASTERCLASS</p>
-            <h1>I'll Show You How to <span class="highlight">Triple Your Income</span> in Less Than 6 Months Using AI and Web Development.</h1>
-            <p class="sub-headline">Join my 3-week intensive bootcamp and learn the exact roadmap I used to transition from a paycheck-to-paycheck Doctor to a Tech Millionaire.</p>
-            
-            <div class="cta-group">
-                <button onclick="scrollToForm()" class="btn-primary">Secure Your Slot - ₦2,999</button>
-            </div>
+<nav class="sticky-nav">
+    <div class="nav-container">
+        <div>Ends in: <span id="countdown-timer"></span></div>
+        <button onclick="scrollToForm()" class="btn-nav">Secure Slot - ₦2,999</button>
+    </div>
+</nav>
+
+<header class="hero">
+    <p class="tagline">PROFITABLE TECH SKILLS MASTERCLASS</p>
+    <h1>I'll Show You How to Triple Your Income Using AI</h1>
+    <button onclick="scrollToForm()" class="btn-primary">Secure Your Slot</button>
+
+    <div class="slot-counter">
+        Only <span id="slots-left">17</span> slots remaining
+    </div>
+</header>
+
+<section class="mentor-grid">
+    <div class="mentor-img">
+        <img src="./images/Lead-image.jpeg">
+    </div>
+    <div>
+        <h2>Dr. Gideon Alugbue</h2>
+        <p>I went from burnout to building a scalable income using tech and AI.</p>
+    </div>
+</section>
+
+<section class="transformation-gallery">
+<div class="container-fluid">
+
+<h2 class="section-title">My Story: The Real Transformation</h2>
+
+<div class="transformation-grid">
+
+<!-- BEFORE -->
+<div class="transform-block before-block">
+    <div class="transform-header">
+        <span class="status-tag broke">BEFORE</span>
+        <h3>Burned Out</h3>
+    </div>
+
+    <div class="gallery-column">
+        <div class="gallery-item">
+            <img src="images/IMG-20260419-WA0020.jpg">
+            <div class="item-caption">Worked 100-hour weeks</div>
         </div>
 
-<div class="slot-counter">
-    <div class="pulse-dot"></div>
-    <p>Only <span id="slots-left" class="highlight-red">17</span> slots remaining for this cohort.</p>
+        <div class="gallery-item">
+            <img src="images/old-apartment.jpg">
+            <div class="item-caption">Just surviving</div>
+        </div>
+    </div>
 </div>
-    </header>
 
-    <section class="mentor-section">
-    <div class="container mentor-grid">
-        <div class="mentor-img">
-            <img src="./images/Lead-image.jpeg" alt="Dr. Gideon Alugbue">
+<!-- AFTER -->
+<div class="transform-block after-block">
+    <div class="transform-header">
+        <span class="status-tag million">AFTER</span>
+        <h3>Freedom</h3>
+    </div>
+
+    <div class="gallery-column">
+        <div class="gallery-item">
+            <img src="images/IMG-20260402-WA0003.jpg">
+            <div class="item-caption">Work anywhere</div>
         </div>
-        <div class="mentor-text">
-            <h2>Meet Your Lead Mentor: <br>Dr. Gideon Alugbue</h2>
-            <p>It was my dream to become a neurosurgeon after medical school. This dream led me into a system that was tideous and unsustainable. I barely had time for myself and could barely maintain a decent lifestyle. An opportunity arose that changed everything. The opportunity lead me to learning tech and AI automation from a friend who was making alot of money in the tech space. I took the leap and it was the best decision I ever made. In just 9 months, I went from earning peanuts to a tech millionaire mentor. Now, I'm on a mission to help others achieve the same transformation and financial freedom that I have. This training is only available to a select few who are ready to take action and change their lives. If you're ready to break free from the 9-5 grind and create a life of abundance, then this mentorship is for you. This training material is worth 100,000naira but I will be teaching it for a fraction of that price because I want to make it accessible to as many people as possible. If you're ready to invest in yourself and your future, then secure your spot now before it's too late for just a token of ₦2,999.
-            </p>
+
+        <div class="gallery-item">
+            <img src="images/IMG-20260325-WA0005.jpg">
+            <div class="item-caption">Better lifestyle</div>
+        </div>
+
+        <div class="gallery-item">
+            <img src="images/IMG-20260329-WA0006.jpg">
+            <div class="item-caption">First class travel</div>
+        </div>
+
+        <div class="gallery-item">
+            <img src="images/IMG-20260408-WA0001.jpg">
+            <div class="item-caption">Income growth</div>
         </div>
     </div>
+</div>
+
+</div>
+
+</div>
 </section>
 
-    <section id="story" class="transformation-gallery">
-    <div class="container-fluid">
-        <h2 class="section-title text-center">My Story: The Real Transformation</h2>
-        
-        <div class="transformation-grid">
-            
-            <div class="transform-block before-block">
-                <div class="transform-header">
-                    <span class="status-tag broke">BEFORE: A Broke, Burned-Out Doctor</span>
-                    <h3>Living Paycheck to Paycheck. Exhausted. Depressed.</h3>
-                </div>
-                
-                <div class="gallery-column">
-                    <div class="gallery-item">
-                        <img src="images/broke-doctor-shift.jpg" alt="Exhausted in hospital scrubs after a 24-hour shift">
-                        <div class="item-caption">Worked 100-hour weeks for peanuts.</div>
-                    </div>
-                    
-                    <div class="gallery-item">
-                        <img src="images/old-apartment.jpg" alt="Minimalist, old apartment">
-                        <div class="item-caption">My 'lifestyle' was just survival.</div>
-                    </div>
-                </div>
-            </div> 
-            
-            <div class="transform-block after-block">
-                <div class="transform-header">
-                    <span class="status-tag million">AFTER: The Tech Millionaire Mentor</span>
-                    <h3>Luxurious Living. Financial Freedom. Control of Time.</h3>
-                </div>
-                
-                <div class="gallery-column">
-                    <div class="gallery-item">
-                        <img src="images/lux-trip.jpg" alt="Working remotely from a luxury resort beach in Bali">
-                        <div class="item-caption">Work from anywhere in the world. Now traveling to 5 countries a year.</div>
-                    </div>
-                    <div class="gallery-item">
-                        <img src="images/lux-car.jpg" alt="Driving a luxury car on a sunny day">
-                        <div class="item-caption">Upgraded my lifestyle. No more financial stress.</div>
-                    </div>
-                    <div class="gallery-item">
-                        <img src="images/lux-home.jpg" alt="Inside a modern luxury home">
-                        <div class="item-caption">From a cramped apartment to a dream home.</div>
-                    </div>
-                    
-                    <div class="gallery-item">
-                        <img src="images/expensive-watch.jpg" alt="Close up of a luxury watch while at an expensive dinner">
-                        <div class="item-caption">My income has tripled. Freedom is priceless.</div>
-                    </div>
-                </div>
-            </div> 
-        </div> 
-        
-        <div class="cta-center text-center">
-            <p>If I could make this change, *you can too*. Learn the roadmap.</p>
-            <button onclick="scrollToForm()" class="btn-primary">Secure My Slot - ₦2,999</button>
-        </div>
-    </div>
+<section id="registration" class="form-section">
+<div class="form-container">
+
+<h2>Register</h2>
+
+<form id="whatsappForm">
+<input type="text" id="name" placeholder="Full Name" required>
+<input type="email" id="email" placeholder="Email" required>
+<input type="tel" id="phone" placeholder="Phone" required>
+
+<select id="readiness" required>
+<option value="" disabled selected>Ready to pay?</option>
+<option value="Yes">Yes</option>
+</select>
+
+<button class="btn-submit">Continue to WhatsApp</button>
+</form>
+
+</div>
 </section>
 
-    <section class="curriculum">
-        <div class="container">
-            <h2 class="section-title">What You'll Learn in 3 Weeks</h2>
-            <div class="skills-grid">
-                <div class="card"><h3>AI Automation</h3><p>Scale your productivity and business tasks with smart AI systems.</p></div>
-                <div class="card"><h3>Web Development</h3><p>Build modern, high-performing websites using AI-driven coding tools.</p></div>
-                <div class="card"><h3>Faceless Content</h3><p>Create viral video content and brands without ever showing your face.</p></div>
-                <div class="card"><h3>Digital Marketing</h3><p>Master the art of selling any product to a global audience.</p></div>
-            </div>
-        </div>
-    </section>
+<script>
+// COUNTDOWN
+function getNextDate() {
+    const now = new Date();
+    let year = now.getFullYear();
+    let month = now.getMonth() + 1;
 
-    <section id="registration" class="form-section">
-        <div class="container">
-            <div class="form-container">
-                <h2>Ready to Transform Your Life?</h2>
-                <p>Fill the form below only if you are ready to pay the <b>₦2,999</b> commitment fee.</p>
-                <form id="whatsappForm">
-                    <input type="text" id="name" placeholder="Full Name" required>
-                    <input type="email" id="email" placeholder="Email Address" required>
-                    <input type="tel" id="phone" placeholder="Phone Number (WhatsApp)" required>
-                    <select id="readiness" required>
-                        <option value="">Are you ready to pay ₦2,999 now?</option>
-                        <option value="Yes">Yes, I am ready to pay</option>
-                    </select>
-                    <button type="submit" class="btn-submit">Register & Get Payment Link</button>
-                </form>
-            </div>
-        </div>
-    </section>
-
-    <script>
-
-        // 1. COUNTDOWN TIMER LOGIC
-const targetDate = new Date("April 11, 2026 20:00:00").getTime();
-
-const updateCountdown = () => {
-    const now = new Date().getTime();
-    const distance = targetDate - now;
-
-    // Time calculations
-    const days = Math.floor(distance / (1000 * 60 * 60 * 24));
-    const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-    const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
-    const seconds = Math.floor((distance % (1000 * 60)) / 1000);
-
-    // Display the result
-    document.getElementById("countdown-timer").innerHTML = 
-        `${days}d ${hours}h ${minutes}m ${seconds}s`;
-
-    // If countdown is finished
-    if (distance < 0) {
-        clearInterval(timerInterval);
-        document.getElementById("countdown-timer").innerHTML = "CLOSED";
+    if (month > 11) {
+        month = 0;
+        year++;
     }
-};
 
-const timerInterval = setInterval(updateCountdown, 1000);
-updateCountdown(); // Run immediately
+    return new Date(year, month, 21, 20, 0, 0).getTime();
+}
 
+const targetDate = getNextDate();
 
-// 2. DYNAMIC SLOT COUNTER LOGIC
-// This simulates seats being taken while the user is on the page
+setInterval(() => {
+    const diff = targetDate - Date.now();
+
+    if (diff <= 0) return;
+
+    const d = Math.floor(diff / 86400000);
+    const h = Math.floor((diff % 86400000) / 3600000);
+    const m = Math.floor((diff % 3600000) / 60000);
+    const s = Math.floor((diff % 60000) / 1000);
+
+    document.getElementById("countdown-timer").innerHTML =
+        `${d}d ${h}h ${m}m ${s}s`;
+}, 1000);
+
+// SLOT
 let slots = 17;
-const slotElement = document.getElementById("slots-left");
+(function loop() {
+    setTimeout(() => {
+        if (slots > 3) {
+            slots--;
+            document.getElementById("slots-left").innerText = slots;
+        }
+        loop();
+    }, Math.random() * 15000 + 15000);
+})();
 
-const reduceSlots = () => {
-    if (slots > 3) { // Stop at 3 so it doesn't hit zero too fast
-        slots--;
-        slotElement.innerText = slots;
-    }
-};
-
-// Randomly reduce slots every 15-30 seconds to simulate real-time signups
-const randomTime = () => Math.floor(Math.random() * (30000 - 15000 + 1)) + 15000;
-setTimeout(function repeat() {
-    reduceSlots();
-    setTimeout(repeat, randomTime());
-}, randomTime());
-
-        function scrollToForm() {
+// SCROLL
+function scrollToForm() {
     document.getElementById('registration').scrollIntoView({ behavior: 'smooth' });
 }
 
+// WHATSAPP
 document.getElementById('whatsappForm').addEventListener('submit', function(e) {
     e.preventDefault();
 
-    // Your WhatsApp Number (International format without +)
-    const phoneNumber = "2348142971407"; 
+    const msg = `Hello Dr. Gideon,
 
-    const name = document.getElementById('name').value;
-    const email = document.getElementById('email').value;
-    const phone = document.getElementById('phone').value;
-    const ready = document.getElementById('readiness').value;
+Name: ${name.value}
+Email: ${email.value}
+Phone: ${phone.value}
 
-    const message = `Hello Dr. Gideon, I am interested in the Mentorship Program.%0A%0A` +
-                    `*Name:* ${name}%0A` +
-                    `*Email:* ${email}%0A` +
-                    `*Phone:* ${phone}%0A` +
-                    `*Ready to Pay:* ${ready}`;
+Please send payment details.`;
 
-    const whatsappUrl = `https://wa.me/${phoneNumber}?text=${message}`;
-
-    window.open(whatsappUrl, '_blank');
+    window.open(`https://wa.me/2348142971407?text=${encodeURIComponent(msg)}`);
 });
-    </script>
+</script>
+
 </body>
 </html>
