@@ -335,10 +335,10 @@
             <h3>Secure Your Seat</h3>
             <form id="regForm">
                 <div class="input-row">
-                    <input type="text" placeholder="FULL NAME" required>
-                    <input type="tel" placeholder="WHATSAPP NUMBER" required>
+                    <input type="text" name="fullname" placeholder="FULL NAME" required>
+                    <input type="tel" name="whatsappnumber" placeholder="WHATSAPP NUMBER" required>
                 </div>
-                <input type="email" placeholder="EMAIL ADDRESS" style="margin-bottom: 15px;" required>
+                <input type="email" name="email" placeholder="EMAIL ADDRESS" style="margin-bottom: 15px;" required>
                 
                 <div class="checkbox-row">
                     <input type="checkbox" required>
@@ -352,7 +352,7 @@
 
     <script>
         // Slot countdown logic
-        let slots = 7;
+        let slots = 10; // Starting with 10 slots
         const slotEl = document.getElementById('slot-count');
         setInterval(() => {
             if (slots > 1) {
@@ -377,9 +377,15 @@
             startTimer(755, document.querySelector('#timer'));
         };
 
+        // Form submission logic to open WhatsApp with pre-filled message and user details
+
         document.getElementById('regForm').addEventListener('submit', (e) => {
             e.preventDefault();
-            const message = "Hello Dr Gideon, I want to secure my slot for the AI Website Mentorship. I am ready to pay the ₦2,999.";
+            const fullname = e.target.fullname.value;
+            const whatsappnumber = e.target.whatsappnumber.value;
+            const email = e.target.email.value;
+
+            const message = `Hello Dr Gideon, I want to secure my slot for the AI Website Mentorship. My name is ${fullname}, my WhatsApp number is ${whatsappnumber}, and my email is ${email}. I am ready to pay the ₦2,999.`;
             window.open(`https://wa.me/08142971407?text=${encodeURIComponent(message)}`, '_blank');
         });
     </script>
