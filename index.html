@@ -7,7 +7,7 @@
     <style>
     :root {
         --primary-blue: #0640df;
-        --accent-red: #f10505;
+        --accent-red: #ff0505;
         --bg-light: #f1f5f9;
         --white: #ffffff;
     }
@@ -37,9 +37,6 @@
         box-shadow: 0 2px 5px rgba(0,0,0,0.05);
     }
     .logo { font-weight: 900; color: var(--primary-blue); font-size: 1.1rem; display: flex; align-items: center; gap: 8px; }
-    .nav-links a { text-decoration: none; color: #475569; margin: 0 10px; font-weight: 600; font-size: 0.75rem; text-transform: uppercase; }
-    .nav-btn { background: var(--accent-red); color: white !important; padding: 8px 15px; border-radius: 5px; }
-
     /* --- HERO --- */
     .hero {
         padding: 60px 5%;
@@ -47,7 +44,7 @@
         /* background: white; */
     }
     .hero h1 { font-size: 2.2rem; color: var(--primary-blue); line-height: 1.1; margin-bottom: 20px; font-weight: 800; }
-    .hero p { font-size: 1.6rem; margin-bottom: 25px; color: #64748b; }
+    .hero p { font-size: 1.6rem; margin-bottom: 25px; color: #b7b8bb; }
     .hero-cta { 
         background: var(--accent-red); 
         color: white; 
@@ -58,6 +55,24 @@
         display: inline-block;
         box-shadow: 0 4px 15px rgba(192, 0, 0, 0.3);
         text-align: center;
+    }
+
+    .info-div{
+    border-top: #ffffff 3px solid;
+    border-radius: 15px;
+    padding: 20px;
+    margin: 50px 0;
+    }
+
+    .info-div h2{
+    font-size: 1.3rem;
+    color: #ff0000;
+    margin-bottom: 50px;
+    }
+
+    .info-div p{
+    font-size: 1.2rem;
+    color: #f2f4f7;
     }
 
     .profile-card {
@@ -105,7 +120,7 @@
 
     .journey-item { display: flex; gap: 15px; margin-bottom: 20px; }
     .journey-item h3 { color: var(--accent-red); font-size: 0.9rem; text-transform: uppercase; }
-    .journey-item p { color: #b2cdf0; font-size: 1rem; }
+    .journey-item p { color: #b7b8bb; font-size: 1rem; }
 
     /* --- VIDEOS --- */
     .video-grid {
@@ -232,8 +247,18 @@
 
     <section class="hero">
         <div class="hero-content">
-            <h1 style="font-size: 2rem; color: var(--accent-red); font-weight: 600;">Making Money remotely, with just your smartphone has never been easier!</h1> <h1> <br>I was earning 300k as a medical Doctor in Nigeria but I refused to remain in that condition, now I have been able to acheive the life I always wanted, earning up to 1million naira weekly and up to $10,000 per month, just by getting the right information and leaveraging digital Skills and AI automation. <br> By the end of this 3days intensive training you will:</h1>
-            <p>Master How Everyday Nigerians Are Quietly Building 7-Figure Tech Careers in tech. <br> Make over $1000 in 9-months with your <b style="color: var(--primary-blue);">Smartphone</b> and computer(If you have one) <br>
+            <h1 style="font-size: 2rem; color: var(--accent-red); font-weight: 600;">Making Money remotely, with just your smartphone has never been easier!</h1> <h1> <br>I was earning 300k as a medical Doctor in Nigeria but I refused to remain in that condition, now I have been able to acheive the life I always wanted, earning up to 1million naira weekly and up to $10,000 per month, just by getting the right information and leaveraging digital Skills and AI automation.</h1>
+            
+            <div class="info-div">
+                <h2>
+                    These informations and skills are not being taught in schools, and most people don't even know they exist. <br>
+                    But I am here to show you how to leverage these skills and information to build the wealthy life you deserve, just like I did. <br>
+                </h2>
+
+                <p>WITH THIS 3 DAYS INTENSIVE TRAINING AND MENTORSHIP, YOU'LL LEARN THE EXACT STEPS TO START EARNING MONEY REMOTELY WITH YOUR SMARTPHONE.</p>
+            </div>
+            
+            <p>Master How Everyday Nigerians Are Quietly Building 7-Figure Tech Careers in tech. <br> Make over $1000 weekly with your <b style="color: var(--primary-blue);">Smartphone</b> and computer(If you have one) <br>
             <b style="color: var(--primary-blue); font-size: 2rem;">No prior tech skill required.</b></p>
             <a href="#form" class="hero-cta">SECURE MY SLOT NOW! (₦2,999 Only)</a>
             
