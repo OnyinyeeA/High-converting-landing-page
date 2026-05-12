@@ -51,10 +51,11 @@
         padding: 15px 30px; 
         border-radius: 8px; 
         text-decoration: none; 
-        font-weight: bold; 
+        font-weight: 800; 
         display: inline-block;
         box-shadow: 0 4px 15px rgba(192, 0, 0, 0.3);
         text-align: center;
+        font-size: 1rem;
     }
 
     .info-div{
@@ -67,12 +68,13 @@
     .info-div h2{
     font-size: 1.3rem;
     color: #f80e0e;
-    margin-bottom: 50px;
+    margin-bottom: 10px;
     }
 
     .info-div p{
     font-size: 1.2rem;
     color: #f2f4f7;
+    line-height: 1.8rem;
     }
 
     .profile-card {
@@ -89,39 +91,87 @@
     .profile-img { width: 50px; height: 50px; border-radius: 50%; overflow: hidden; }
     .profile-img img { width: 100%; height: 100%; object-fit: cover; }
 
-    .story-section { padding: 50px 5%; }
-    .story-section h2 { font-size: 2rem; color: var(--primary-blue); margin-bottom: 40px; text-align: center; }
-    
-    .story-grid {
-        display: grid;
-        grid-template-columns: 1fr 1fr;
-        gap: 40px;
-    }
-    .before-after { display: grid; gap: 15px; grid-template-columns: repeat(2, 1fr); margin-bottom: 20px;}
-    .img-placeholder { 
-    width: 100%;
-    height: 450px; /* Tall enough for professional portraits */
-    object-fit: cover;
-    object-position: top center; /* Prioritizes the head/face area */
-    border-radius: 12px;
-    display: block;
-    margin-bottom: 10px;
-    background: transparent; /* Ensures no black bars appear */
+    .story-section { 
+    padding: 10px 5%; 
+    background: #02020f;
 }
 
-.profile-img img {
+.story-section h2 { 
+    font-size: 2.5rem; 
+    color: var(--text-white); 
+    margin-bottom: 50px; 
+    text-align: center; 
+    font-weight: 800;
+}
+
+.story-grid {
+    display: grid;
+    /* Three columns: Text (widest), Before, After */
+    grid-template-columns: 1.2fr 1fr 1fr;
+    gap: 30px;
+    align-items: start;
+}
+
+.before-after-grid { 
+    display: grid; 
+    gap: 10px; 
+    grid-template-columns: repeat(2, 1fr); 
+}
+
+.img-placeholder { 
     width: 100%;
-    height: 100%;
-    border-radius: 50%;
+    height: 280px; /* Reduced height to keep 10 images from stretching the page too far */
     object-fit: cover;
     object-position: top center;
+    border-radius: 8px;
+    border: 1px solid rgba(255,255,255,0.1);
+    transition: transform 0.3s ease;
 }
-    .label { background: var(--primary-blue); color: white; width: fit-content; padding: 5px 15px; border-radius: 20px; font-size: 0.9rem; font-weight: bold; margin: 10px auto; }
 
-    .journey-item { display: flex; gap: 15px; margin-bottom: 20px; }
-    .journey-item h3 { color: var(--accent-red); font-size: 0.9rem; text-transform: uppercase; }
-    .journey-item p { color: #b7b8bb; font-size: 1rem; }
+.img-placeholder:hover {
+    transform: scale(1.03);
+    border-color: var(--primary-blue);
+}
 
+.label { 
+    background: var(--primary-blue); 
+    color: white; 
+    width: 100%; 
+    text-align: center;
+    padding: 8px; 
+    border-radius: 8px; 
+    font-size: 1.5rem; 
+    font-weight: bold; 
+    margin-bottom: 15px;
+    letter-spacing: 1px;
+}
+
+.journey-item { 
+    margin-bottom: 35px; 
+    padding-right: 20px;
+}
+
+.journey-item h3 { 
+    color: var(--accent-red); 
+    font-size: 1.1rem; 
+    margin-bottom: 10px;
+    letter-spacing: 1px;
+}
+
+.journey-item p { 
+    color: #cbd5e1; 
+    font-size: 1.1rem; 
+    line-height: 1.6;
+}
+
+/* RESPONSIVE: Stack on mobile */
+@media (max-width: 992px) {
+    .story-grid {
+        grid-template-columns: 1fr;
+    }
+    .journey-item { padding-right: 0; text-align: center; }
+    .img-placeholder { height: 200px; }
+}
     /* --- VIDEOS --- */
     .video-grid {
         display: grid;
@@ -139,27 +189,87 @@
     .video-container iframe { width: 100%; height: 250px; border-radius: 10px; }
 
     /* --- FEATURES --- */
-    .feature-grid {
-        display: grid;
-        grid-template-columns: repeat(4, 1fr);
-        gap: 15px;
-        padding: 0 5% 50px;
-    }
+    .features {
+    padding: 100px 5%;
+    background: #01010c;
+}
 
-    .features h2{
-    font-size: 2rem;
-    color: var(--primary-blue);
+.section-header {
     text-align: center;
-    margin: 10rem 0 3rem;
-    }
-    .feature-box { 
-        text-align: center; 
-        padding: 20px; 
-        background: white;
-        border: 1px solid #e2e8f0; 
-        border-radius: 12px; 
-    }
-    .feature-box h4 { font-size: 1rem; color: var(--primary-blue); text-transform: uppercase; }
+    margin-bottom: 60px;
+}
+
+.features h2 {
+    font-size: 2.5rem;
+    color: var(--primary-blue);
+    margin-bottom: 15px;
+    font-weight: 800;
+}
+
+.section-header p {
+    color: #94a3b8;
+    font-size: 1.1rem;
+}
+
+.feature-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 25px;
+}
+
+.feature-box { 
+    text-align: left; 
+    padding: 40px 30px; 
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid rgba(6, 64, 223, 0.2); 
+    border-radius: 20px;
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    position: relative;
+    overflow: hidden;
+}
+
+.feature-box:hover {
+    background: rgba(6, 64, 223, 0.1);
+    border-color: var(--primary-blue);
+    transform: translateY(-10px);
+}
+
+.feature-box .icon {
+    font-size: 2.5rem;
+    margin-bottom: 20px;
+    display: block;
+}
+
+.feature-box h4 { 
+    font-size: 1.2rem; 
+    color: #ffffff; 
+    text-transform: uppercase; 
+    margin-bottom: 15px;
+    letter-spacing: 1px;
+}
+
+.feature-box p {
+    color: #94a3b8;
+    font-size: 0.95rem;
+    line-height: 1.6;
+}
+
+/* --- ANIMATION STATES --- */
+.reveal {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: all 0.8s ease-out;
+}
+
+.reveal.active {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Staggered Delay for the Grid */
+.feature-box:nth-child(2) { transition-delay: 0.2s; }
+.feature-box:nth-child(3) { transition-delay: 0.4s; }
+.feature-box:nth-child(4) { transition-delay: 0.6s; }
 
     /* --- FORM --- */
     .form-section { padding: 60px 5%; background: var(--primary-blue); color: white; }
@@ -196,9 +306,6 @@
 
     /* For Mobile Phones (768px) */
     @media (max-width: 768px) {
-        nav { flex-direction: column; gap: 15px; }
-        .nav-links { display: flex; flex-wrap: wrap; justify-content: center; gap: 5px; }
-        .nav-links a { margin: 5px; font-size: 0.7rem; }
         
         .hero h1 { font-size: 1.8rem; }
         .hero-cta { width: 100%; }
@@ -206,9 +313,6 @@
 
         .video-grid { grid-template-columns: 1fr; }
         .input-row { grid-template-columns: 1fr; }
-        
-        .before-after { grid-template-columns: 1fr; }
-        .img-placeholder { height: 200px; }
 
         .feature-grid { grid-template-columns: 1fr; }
         
@@ -220,19 +324,6 @@
         .urgency-bar { font-size: 0.75rem; }
         .logo { font-size: 0.9rem; }
     }
-
-    @media (max-width: 768px) {
-    .img-placeholder {
-        height: auto; /* Allow image to dictate height on mobile */
-        max-height: 400px;
-        object-fit: contain; /* Optional: Shows the WHOLE image without any cropping */
-    }
-    
-    .before-after {
-        grid-template-columns: 1fr; /* Stacks photos vertically for better mobile view */
-        gap: 20px;
-    }
-}
 </style>
 </head>
 <body>
@@ -241,54 +332,71 @@
         ONLY <span id="slot-count">7</span> SLOTS LEFT! ⏳ Closing in: <span id="timer">12:35</span>
     </div>
 
-    <section class="hero">
+    <section class="hero" style="padding: 60px 20px; text-align: center; max-width: 1000px; margin: 0 auto; color: #ffffff;">
         <div class="hero-content">
-            <h1 style="font-size: 1.8rem; color: var(--accent-red); font-weight: 600; border: 2px solid #f1f5f9; padding: 15px; border-radius: 20px; line-height: 2.5rem;">Making Money with just your smartphone has never been easier!</h1> 
+            <div style="display: inline-block; padding: 23px; border-radius: 25px; border: 1px solid rgba(255,255,255,0.3); font-size: 18px; margin-bottom: 25px; color: #f1f5f9;">
+            ✅ 100% Beginner Friendly & No Coding Required
+            </div>
             
-            <h3 style="color: var(--primary-blue); font-style: italic; font-size: 1.2rem; margin-top: 2rem; line-height: 2.2rem;">I was earning 300k as a medical Doctor in Nigeria but I refused to remain in that condition. <br><br> Now I am earning up to 1million naira weekly and up to $10,000 per month, just by getting the right information and leaveraging digital Skills. I am now living the life I always wanted.</h3>
+            <h1 style=" font-weight: 800; line-height: 1.2; margin-bottom: 25px;">
+                Making Money With <br>
+                <span style="color: #ffcc00;">Your Smartphone</span> Has <br>Never Been Easier! <br>
+                No Coding. No prior experience. Just Results.
+            </h1>
+
+            <p style="font-size: 18px; color: #cbd5e1; max-width: 800px; margin: 0 auto 30px; line-height: 1.6;">
+                "I was earning 300k as a medical Doctor in Nigeria but I refused to remain in that condition. Now I am earn up to 1million naira weekly and up to $10,000 per month, just by getting the right information and leaveraging digital Skills."
+            </p>
             
-            <div class="profile-card">
-                <div class="profile-img">
-                    <img src="images/Lead-image.jpeg" alt="Dr. Gideon">
-                </div>
+            <div class="profile-card" style="width: 80%; display: inline-flex; align-items: center; background: white; padding: 10px 25px; border-radius: 50px; margin-bottom: 40px; color: #01010c; text-align: left;">
+                <img src="images/Lead-image.jpeg" alt="Dr. Gideon" style="width: 50px; height: 50px; border-radius: 50%; margin-right: 15px; object-fit: cover;">
+                
                 <div>
-                    <strong style="font-size: 0.9rem;">Dr. Gideon</strong><br>
-                    <span style="font-size: 0.7rem; color: #64748b;">From Medicine Doctor to Tech Entrepreneur</span>
+                    <strong style="font-size: 18px; display: block; line-height: 1.5;">Dr. Gideon</strong>
+                    <span style="font-size: 16px; color: #64748b;">Tech Mentor & Entrepreneur</span>
                 </div>
+            </div>
+            
+            <div class="info-div">
+                <h2>Why This Mentorship is Different</h2>
+                <p>
+                    This isn't just another online course. It's a mentorship program where I personally guide you step-by-step to build and scale your own online digital-powered business, even if you're starting from zero.
+                </p>
             </div>
 
             <div class="info-div">
-                <h2>
-                    These informations and skills are not being taught in schools, and most people don't even know they exist. <br>
-                    </h2> <br>
-                    <h2 style="border-top: 3px solid #ffffff; border-radius: 20px; padding: 20px;">Now I am here to show you how to leverage these skills and information to build the wealthy life you deserve, just like I did.</h2>
-
-                    <p><b>CLICK THE LINK BELOW TO SECURE YOUR SPOT!</b></p>
-
-                    <a href="#form" class="hero-cta">SECURE MY SLOT NOW! (₦2,999 Only)</a> <br><br> <br>
-
-                <p>WITH THIS 3 DAYS INTENSIVE TRAINING AND MENTORSHIP, YOU'LL LEARN THE EXACT STEPS TO START EARNING MONEY WITH YOUR SMARTPHONE.</p>
+                <h2>Transform Your Life</h2>
+                <p>
+                    Join hundreds of students who have already transformed their lives by leveraging the power of digital skills and no-code tools.
+                </p>
             </div>
-            
-            <p>Master How I was able to Build a steady 7-Figure income in just 3 months <br> Make over $1000 weekly with your <b>Smartphone</b> and computer(If you have one)</p>
-            <p><b>No prior tech skill required.</b></p>
-            <a href="#form" class="hero-cta">SECURE MY SLOT NOW! (₦2,999 Only)</a>
-        </div>
 
+            <div style="margin-top: 10px;">
+                <a href="#form" class="hero-cta" style="background: #ffffff; color: rgb(245, 6, 6); padding: 20px 50px; border-radius: 12px; text-decoration: none; font-weight: 900; font-size: 22px; display: inline-block; box-shadow: 0 10px 25px rgba(129, 97, 97, 0.4); text-transform: uppercase;">
+                I'M READY TO LEARN!
+                </a> <br><br>
+                <span style="color: #885252;">
+                    warning: offer ends soon!
+                </span>
+            </div>
+        </div>
     </section>
 
     <section class="story-section">
         <h2>My Life Changed with One Opportunity</h2>
+        
         <div class="story-grid">
-            <div>
-                <div class="label"><span>Before</span></div> <br>
-                <div class="before-after">
+            <div class="proof-column">
+                <div class="label"><span>Before</span></div>
+                <div class="before-after-grid">
                     <img class="img-placeholder" src="images/IMG-20260427-WA0004.jpg" alt="Before Image">
                     <img class="img-placeholder" src="images/IMG-20260427-WA0005.jpg" alt="Before Image">
                     <img class="img-placeholder" src="images/IMG-20260507-WA0000.jpg" alt="Before Image">
-                    <img src="images/IMG-20260507-WA0001.jpg" alt="Before Image" class="img-placeholder">
+                    <img class="img-placeholder" src="images/IMG-20260507-WA0001.jpg" alt="Before Image">
                 </div>
-                <div class="story-details">
+            </div>
+
+            <div class="story-details">
                 <div class="journey-item">
                     <div>
                         <h3>THE PIVOT</h3>
@@ -296,38 +404,41 @@
                     </div>
                 </div>
 
-                <div class="journey-item">
-                    <div>
-                        <h3>RESULTS IN 9 MONTHS</h3>
-                        <p>From earning "peanuts" to hitting a 7-figure monthly income by leveraging AI to build and sell websites.</p>
-                    </div>
+            <div class="journey-item">
+                <div>
+                    <h3>RESULTS IN 9 MONTHS</h3>
+                    <p>From earning "peanuts" to hitting a 7-figure monthly income by leveraging AI to build and sell websites.</p>
                 </div>
+            </div>
 
-                <div class="journey-item">
-                    <div>
-                        <h3>LIFESTYLE CHANGE</h3>
-                        <p>Buying my dream car, traveling globally, and attending the World Cup. I'm teaching 25 people to do the same.</p>
-                    </div>
+            <div class="journey-item">
+                <div>
+                    <h3>LIFESTYLE CHANGE</h3>
+                    <p>Buying my dream car, traveling globally, and attending the World Cup. I'm teaching 25 people to do the same.</p>
                 </div>
+            </div>
         </div>
-            </div>
-            
-            <div>
-                <div class="label"><span>After</span></div> <br>
-                <div class="before-after"> 
-                    <img class="img-placeholder" src="images/IMG-20260325-WA0005.jpg" alt="After Image">
-                    <img class="img-placeholder" src="images/IMG-20260402-WA0003.jpg" alt="After Image">
-                    <img  class="img-placeholder" src="images/IMG-20260408-WA0003.jpg" alt="After Image">
-                    <img class="img-placeholder" src="images/IMG-20260408-WA0001.jpg" alt="After Image">
-                    <img src="images/IMG-20260418-WA0000_1.jpg" alt="After Image" class="img-placeholder">
-                    <img src="images/IMG-20260504-WA0021.jpg" alt="`After Image" class="img-placeholder">
 
-                </div>
+        <div class="proof-column">
+            <div class="label"><span>After</span></div>
+            <div class="before-after-grid"> 
+                <img class="img-placeholder" src="images/IMG-20260325-WA0005.jpg" alt="After Image">
+                <img class="img-placeholder" src="images/IMG-20260402-WA0003.jpg" alt="After Image">
+                <img class="img-placeholder" src="images/IMG-20260408-WA0003.jpg" alt="After Image">
+                <img class="img-placeholder" src="images/IMG-20260408-WA0001.jpg" alt="After Image">
+                <img class="img-placeholder" src="images/IMG-20260418-WA0000_1.jpg" alt="After Image">
+                <img class="img-placeholder" src="images/IMG-20260504-WA0021.jpg" alt="After Image">
             </div>
-        </div>  
-        
+        </div>
 
-        <!-- Lifestyle Videos Row (From the bottom of the section in the UI design) -->
+        <div style="text-align: center; margin-top: 30px;">
+            <a href="#form" class="hero-cta" style="background: #ffffff; color: rgb(245, 6, 6); padding: 20px 50px; border-radius: 12px; text-decoration: none; font-weight: 900; font-size: 22px; display: inline-block; box-shadow: 0 10px 25px rgba(129, 97, 97, 0.4); text-transform: uppercase;">
+                I WANT THIS TRANSFORMATION!
+            </a>
+        </div>
+    </div>
+
+    <!-- Lifestyle Videos Row (From the bottom of the section in the UI design) -->
         <div class="video-grid">
             <div class="video-container">
                 <iframe src="YOUR_VIDEO_URL_1" frameborder="0" allowfullscreen></iframe>
@@ -338,22 +449,40 @@
                 <p>Lifestyle Proof 2</p>
             </div>
         </div>
-    </div>
     </section>
 
     <section class="features">
-        <div>
-            <h2>What You'll Learn in This Training</h2>
+    <div class="section-header">
+        <h2>What You'll Learn in This Training</h2>
+        <p>A complete roadmap to transitioning from a salary earner to a high-ticket digital entrepreneur.</p>
+    </div>
+    
+    <div class="feature-grid">
+        <div class="feature-box reveal">
+            <div class="icon">🚀</div>
+            <h4>Profitable Business Mastery</h4>
+            <p>Learn how to package your existing digital talents into a high-demand service that clients are eager to pay for.</p>
         </div>
-        
-        <div class="feature-grid">
-            <div class="feature-box"><h4>How to turn your skills <br> into a profitable business</h4></div>
-            <div class="feature-box"><h4>Step-by-Step: <br>How to Create and <br>Sell AI-Powered Websites</h4></div>
-            <div class="feature-box"><h4>How to Make 7 figures <br> online in 9 Months</h4></div>
-            <div class="feature-box"><h4>How to build a stable and <br> sustainable online business</h4></div>
+
+        <div class="feature-box reveal">
+            <div class="icon">🤖</div>
+            <h4>AI-Powered Web Design</h4>
+            <p>The exact step-by-step process I use to build professional, high-converting websites in hours using advanced AI tools.</p>
         </div>
-        
-    </section>
+
+        <div class="feature-box reveal">
+            <div class="icon">💰</div>
+            <h4>The 7-Figure Roadmap</h4>
+            <p>Discover the specific compounding strategies I used to scale from "peanuts" to a consistent monthly 7-figure income.</p>
+        </div>
+
+        <div class="feature-box reveal">
+            <div class="icon">🛡️</div>
+            <h4>Sustainability & Stability</h4>
+            <p>How to secure international clients and build systems that ensure your online income is stable for years to come.</p>
+        </div>
+    </div>
+</section>
 
     <section class="form-section" id="form">
         <div style="text-align: center; margin-bottom: 30px;">
@@ -380,6 +509,25 @@
     </section>
 
     <script>
+    
+    function revealOnScroll() {
+    var reveals = document.querySelectorAll(".reveal");
+    for (var i = 0; i < reveals.length; i++) {
+        var windowHeight = window.innerHeight;
+        var elementTop = reveals[i].getBoundingClientRect().top;
+        var elementVisible = 150; // Trigger when element is 150px into view
+        
+        if (elementTop < windowHeight - elementVisible) {
+            reveals[i].classList.add("active");
+        }
+    }
+}
+
+window.addEventListener("scroll", revealOnScroll);
+
+// Also run on load in case user starts midway down the page
+window.onload = revealOnScroll;
+
         // Slot countdown logic
         let slots = 10; // Starting with 10 slots
         const slotEl = document.getElementById('slot-count');
