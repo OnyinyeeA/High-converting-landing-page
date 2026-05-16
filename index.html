@@ -98,7 +98,7 @@
 
 .story-section h2 { 
     font-size: 2.5rem; 
-    color: var(--text-white); 
+    color: rgb(160, 157, 157); 
     margin-bottom: 50px; 
     text-align: center; 
     font-weight: 800;
@@ -110,6 +110,14 @@
     grid-template-columns: 1.2fr 1fr 1fr;
     gap: 30px;
     align-items: start;
+}
+
+.story-details { 
+    color: #cbd5e1; 
+    font-size: 1.1rem; 
+    line-height: 1.6;
+    margin-top: 65px;
+    margin-right: 20px;
 }
 
 .before-after-grid { 
@@ -190,13 +198,13 @@
 
     /* --- FEATURES --- */
     .features {
-    padding: 100px 5%;
+    padding: 10px 5%;
     background: #01010c;
 }
 
 .section-header {
     text-align: center;
-    margin-bottom: 60px;
+    /* margin-bottom: 60px; */
 }
 
 .features h2 {
@@ -353,7 +361,7 @@
 
                 <div>
                     <strong style="color:#0f1114; font-size: 18px; text-align: left; display: block; line-height: 1.5;">Coach. Gideon</strong>
-                    <span style="font-size: 16px; color: #64748b;">Tech Mentor & Entrepreneur</span>
+                    <span style="font-size: 16px; color: #64748b; text-align: left;">Tech Mentor & Entrepreneur</span>
                 </div>
             </div>
             
@@ -371,17 +379,19 @@
                 </p>
 
                 <figure>
-                    <img class="img-placeholder" src="images/IMG-20260325-WA0005.jpg" alt="After Image" style="margin-top: 20px; border-radius: 12px; border: 1px solid rgba(255,255,255,0.1); transition: transform 0.3s ease; width: 90%; height: auto; object-fit: cover;">
+                    <img class="img-placeholder" src="images/IMG-20260325-WA0005.jpg" alt="After Image" style="margin-top: 20px; border-radius: 12px; border: 1px solid rgba(255,255,255,0.1); transition: transform 0.3s ease; width: 100%; height: auto; object-fit: cover;">
                     <figcaption style="font-size: 18px; color: #94a3b8; text-align: center; margin-top: 10px;">
-                        At the Media One Hotel, Dubai, during the World Cup 2022.
+                        At the InterContinental Doha The City.
                     </figcaption>
                 </figure>
             </div>
+<!-- animated blinking button -->
 
             <div style="margin-top: 10px;">
-                <a href="#form" class="hero-cta" style="background: #ffffff; color: rgb(245, 6, 6); padding: 20px 50px; border-radius: 12px; text-decoration: none; font-weight: 900; font-size: 22px; display: inline-block; box-shadow: 0 10px 25px rgba(129, 97, 97, 0.4); text-transform: uppercase;">
+                <a href="#form" class="hero-cta" style="background: #ffffff; color: rgb(245, 6, 6); padding: 20px 50px; border-radius: 12px; text-decoration: none; font-weight: 900; font-size: 22px; display: inline-block; box-shadow: 0 10px 25px rgba(129, 97, 97, 0.4); text-transform: uppercase; font-family: 'Verdana', Geneva, Tahoma, sans-serif;">
                 I'M READY TO LEARN!
-                </a> <br><br>
+                </a>
+                 <br><br>
                 <span style="color: #885252;">
                     warning: offer ends soon!
                 </span>
@@ -395,10 +405,16 @@
         <div class="story-grid">
             <div class="proof-column">
                 <div class="label"><span>Before</span></div>
+                
+                <!-- stand alone image -->
+                <div>
+                    <img style="width: 100%; height: 270px; border-radius: 10px; object-fit: cover;" src="images/IMG-20260427-WA0007.jpg" alt="Before Image">
+                </div>
+
                 <div class="before-after-grid">
                     <img class="img-placeholder" src="images/IMG-20260427-WA0004.jpg" alt="Before Image">
                     <img class="img-placeholder" src="images/IMG-20260427-WA0005.jpg" alt="Before Image">
-                    
+                    <img class="img-placeholder" src="images/IMG-20260511-WA0014.jpg" alt="Before Image">
                     <img class="img-placeholder" src="images/IMG-20260507-WA0001.jpg" alt="Before Image">
                 </div>
             </div>
@@ -421,33 +437,58 @@
             <div class="journey-item">
                 <div>
                     <h3>LIFESTYLE CHANGE</h3>
-                    <p>Buying my dream car, traveling globally, and attending the World Cup. I'm teaching 25 people to do the same.</p>
+                    <p>Buying my dream car, traveling globally, and attending the World Cup. I'm teaching 50 people to do the same.</p>
                 </div>
             </div>
         </div>
 
         <div class="proof-column">
             <div class="label"><span>After</span></div>
+            <div>
+                <!-- stand alone image -->
+                <img style="width: 100%; height: 270px; border-radius: 10px; object-fit: cover;" src="images/IMG-20260504-WA0021.jpg" alt="After Image">
+            </div>
+
+            <!-- grid images -->
             <div class="before-after-grid"> 
-                
-                <img class="img-placeholder" src="images/IMG-20260402-WA0003.jpg" alt="After Image">
                 <img class="img-placeholder" src="images/IMG-20260408-WA0003.jpg" alt="After Image">
                 <img class="img-placeholder" src="images/IMG-20260408-WA0001.jpg" alt="After Image">
                 <img class="img-placeholder" src="images/IMG-20260418-WA0000_1.jpg" alt="After Image">
-                <img class="img-placeholder" src="images/IMG-20260504-WA0021.jpg" alt="After Image">
+                <img class="img-placeholder" src="images/IMG-20260402-WA0003.jpg" alt="After Image">
             </div>
         </div>
     </div>
 
     <div class="info-div" style="margin-top: 50px;">
         <h2 style="color: var(--primary-blue);">This opportunity is not for you if:</h2>
-        <ul style="color: var(--bg-light); text-align: left; max-width: 600px; margin: 20px auto; font-size: 1.3rem; line-height: 1.8;">
+        <ul style="list-style-image: url(images/pin\ \(1\).png); color: var(--bg-light); text-align: left; max-width: 600px; margin: 20px auto; font-size: 1.3rem; line-height: 1.8;">
             <li>You cannot do all it takes to make legit money by securing your slot.</li>
             <li>You have poverty mentality.</li>
             <li>You feel like this is a scam.</li>
             <li>You have have up to 5million naira in your account right now.</li>
             <li>You are not ready to invest in yourself.</li>
         </ul>
+    </div>
+
+    <div class="info-div" style="margin-top: 50px;">
+        <h2 style="color: var(--primary-blue);">This Training is for you:</h2>
+        <ul style="list-style-image: url(images/pin\ \(1\).png); color: var(--bg-light); text-align: left; max-width: 600px; margin: 20px auto; font-size: 1.3rem; line-height: 1.8;">
+            <li>If you are tired of your current financial situation.</li>
+            <li>If you are a 9-5 worker who no longer wants to be stuck earning peanuts.</li>
+            <li>If your dream is to work from anywhere in the world, get paid up to 1million naira monthly, and have financial freedom.</li>
+            <li>If you want to be your own boss and have control over your time and travel as you wish.</li>
+            <li>If you have not made your first million naira yet but you are ready to learn how to do it.</li>
+        </ul>
+
+        <div style="margin: 5rem 20rem; text-align: center; max-width: 600px;">
+                <a href="#form" class="hero-cta" style="background: #ffffff; color: rgb(245, 6, 6); padding: 20px 50px; border-radius: 12px; text-decoration: none; font-weight: 900; font-size: 22px; display: inline-block; box-shadow: 0 10px 25px rgba(129, 97, 97, 0.4); text-transform: uppercase; font-family: 'Verdana', Geneva, Tahoma, sans-serif;">
+                I'M READY TO LEARN!
+                </a>
+                 <br><br>
+                <span style="color: #885252;">
+                    warning: offer ends soon!
+                </span>
+            </div>
     </div>
 
     <!-- Lifestyle Videos Row (From the bottom of the section in the UI design) -->
@@ -462,6 +503,41 @@
             </div>
         </div>
     </section>
+
+    <!-- tech skill a requirement to work with big companies and clients -->
+     <section class="features">
+        <div class="section-header">
+            <h2>Why Tech Skills are Essential in Today's World</h2>
+        </div>
+        <div class="feature-grid">
+            <div class="feature-box">
+                <h4>Why Tech Skills Matter</h4>
+                <p>In today's digital age, having tech skills is no longer optional.It's a requirement to work with big companies and clients who are looking for professionals who can navigate the digital landscape.</p>
+            </div>
+            <div class="feature-box">
+                <h4>High-Paying Opportunities</h4>
+                <p>Whether it's building websites, leveraging AI, or managing online businesses, tech skills open doors to high-paying opportunities and allow you to stay competitive in the job market.</p>
+            </div>
+            <div class="feature-box">
+                <h4>Competitive Advantage</h4>
+                <p>Big companies like Google, Amazon, and Facebook are constantly seeking individuals with tech expertise to drive innovation and growth. By acquiring these skills, you position yourself as a valuable asset in the workforce and increase your chances of landing lucrative contracts and collaborations.</p>
+            </div>
+            <div class="feature-box">
+                <h4>Global Opportunities with international clients</h4>
+                <p>Work with Big Companies like Google, Amazon, and other tech companies remotely because you'll be in high demand by employers who are looking to digitize their operations and stay competitive in the market.</p>
+            </div>
+        </div>
+        <div style="margin: 5rem 20rem; text-align: center; max-width: 600px;">
+                <a href="#form" class="hero-cta" style="background: #ffffff; color: rgb(245, 6, 6); padding: 20px 50px; border-radius: 12px; text-decoration: none; font-weight: 900; font-size: 22px; display: inline-block; box-shadow: 0 10px 25px rgba(129, 97, 97, 0.4); text-transform: uppercase; font-family: 'Verdana', Geneva, Tahoma, sans-serif;">
+                JOIN THIS GREAT OFFER!
+                </a>
+                 <br><br>
+                <span style="color: #885252;">
+                    warning: offer ends soon!
+                </span>
+            </div>    
+     </section>
+
 
     <section class="features">
     <div class="section-header">
@@ -519,6 +595,14 @@
             </form>
         </div>
     </section>
+
+    <!-- footer with copyright and disclaimer -->
+    <footer>
+        <div style="text-align: center; padding: 20px; background: #02020f; color: #64748b; font-size: 0.9rem;">
+            <p>&copy; 2026. All rights reserved.</p>
+            <p>Disclaimer: This mentorship program is not a get-rich-quick scheme. Results may vary based on individual effort and market conditions. Always do your own research before making financial decisions.</p>
+        </div>
+    </footer>
 
     <script>
     
