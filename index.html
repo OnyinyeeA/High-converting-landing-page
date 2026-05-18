@@ -424,6 +424,18 @@ input{
     cursor:pointer;
 }
 
+.checkbox-row{
+    display:flex;
+    align-items:flex-start;
+    gap:10px;
+    margin:15px 0;
+    font-size:0.95rem;
+    color:#334155;
+}
+.checkbox-row input{
+    margin-top:4px;
+}
+
 /* ===== TABLET ===== */
 @media (max-width:992px){
 
@@ -537,11 +549,11 @@ src="https://www.facebook.com/tr?id=2174212883399284&ev=PageView&noscript=1"
     <section class="hero" style="text-align: center; max-width: 1000px; margin: 0 auto; color: #ffffff;">
         <div class="hero-content">
             <h1 class="hero-title" style=" line-height: 1.4; margin-bottom: 25px; color: var(--accent-red); font-family: Verdana, Geneva, Tahoma, sans-serif;">
-                Making Money With Your Smartphone Has Never Been Easier! No Coding. No prior experience. Just Results.
+                Making Money With Your Smartphone Has Never Been Easier! Learn practical digital skills step-by-step, even if you're starting from zero. No Coding!
             </h1>
 
             <p class="hero-text" style=" color: #cbd5e1; max-width: 800px; margin: 0 auto 30px; line-height: 1.6;">
-                "I was earning 300k as a medical Doctor in Nigeria but I refused to remain in that condition. Now I am earn up to 1million naira weekly and up to $10,000 per month, just by getting the right information and leaveraging digital Skills."
+                "I was earning 300k as a medical Doctor in Nigeria but I refused to remain in that condition. Now I am earn up to 1million naira weekly and up to $5,000 per month, just by getting the right information and leaveraging digital Skills."
             </p>
             <figure>
                 <blockquote style="font-size: 1.1rem; color: #94a3b8; font-style: italic; border-left: 4px solid #f80e0e; padding-left: 15px; margin-bottom: 20px;">
@@ -719,14 +731,6 @@ src="https://www.facebook.com/tr?id=2174212883399284&ev=PageView&noscript=1"
                 <p>Work with Big Companies like Google, Amazon, and other tech companies remotely because you'll be in high demand by employers who are looking to digitize their operations and stay competitive in the market.</p>
             </div>
         </div>
-        <div class="cta-wrapper">
-                <a href="#form" class="cta-btn" style="animation:pulse 1.5s infinite;">
-                    I’M READY TO LEARN!
-                </a> <br><br>
-                <span style="color:#ffb3b3; font-weight:600;">
-                    ⚠️ WARNING: Only a few slots left
-                </span>
-            </div>
      </section>
 
 
@@ -821,51 +825,120 @@ function revealOnScroll() {
 window.addEventListener("scroll", revealOnScroll);
 
 /* SLOT COUNTDOWN */
-let slots = 50;
 const slotEl = document.getElementById('slot-count');
 
-setInterval(() => {
-    if (slots > 1) {
-        slots--;
+// configurable parameters for 50slots for the next 3days with a minimum of 12 slots to create urgency without being too aggressive
+const MAX_SLOTS = 50;
+const MIN_SLOTS = 12;
+
+// load saved value or start fresh
+let slots = localStorage.getItem("slotsLeft");
+
+if (!slots) {
+    slots = MAX_SLOTS;
+    localStorage.setItem("slotsLeft", slots);
+} else {
+    slots = parseInt(slots);
+}
+
+// display immediately
+slotEl.innerText = slots;
+
+// smart decay system
+function reduceSlots() {
+    if (slots <= MIN_SLOTS) return;
+
+    // random reduction feels more human + less fake
+    const shouldReduce = Math.random() < 0.35; // 35% chance every interval
+
+    if (shouldReduce) {
+        slots -= 1;
+
+        if (slots < MIN_SLOTS) slots = MIN_SLOTS;
+
         slotEl.innerText = slots;
+        localStorage.setItem("slotsLeft", slots);
     }
-}, 180000);
+}
+
+// run every 2–5 minutes randomly
+setInterval(() => {
+    reduceSlots();
+}, 120000 + Math.random() * 180000);
 
 /* TIMER */
-function startTimer(duration, display) {
-    var timer = duration;
+function startTimer(display) {
 
-    setInterval(function () {
-        var minutes = parseInt(timer / 60, 10);
-        var seconds = parseInt(timer % 60, 10);
+    // 3 days in milliseconds
+    const countdownTime = 3 * 24 * 60 * 60 * 1000;
 
-        minutes = minutes < 10 ? "0" + minutes : minutes;
-        seconds = seconds < 10 ? "0" + seconds : seconds;
+    // save start time so refresh doesn't reset it
+    let startTime = localStorage.getItem("countdownStart");
 
-        display.textContent = minutes + ":" + seconds;
+    if (!startTime) {
+        startTime = Date.now();
+        localStorage.setItem("countdownStart", startTime);
+    }
 
-        if (--timer < 0) {
-            timer = duration;
+    const endTime = parseInt(startTime) + countdownTime;
+
+    setInterval(() => {
+
+        const now = Date.now();
+        const distance = endTime - now;
+
+        if (distance <= 0) {
+            display.textContent = "00d : 00h : 00m : 00s";
+            return;
         }
+
+        const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+
+        const hours = Math.floor(
+            (distance % (1000 * 60 * 60 * 24)) /
+            (1000 * 60 * 60)
+        );
+
+        const minutes = Math.floor(
+            (distance % (1000 * 60 * 60)) /
+            (1000 * 60)
+        );
+
+        const seconds = Math.floor(
+            (distance % (1000 * 60)) /
+            1000
+        );
+
+        display.textContent =
+            `${days}d : ${hours}h : ${minutes}m : ${seconds}s`;
+
     }, 1000);
 }
 
 /* LOAD EVENTS */
 window.addEventListener('load', () => {
     revealOnScroll();
-    startTimer(755, document.querySelector('#timer'));
+
+    const timerDisplay = document.querySelector('#timer');
+
+    if (timerDisplay) {
+        startTimer(timerDisplay);
+    }
 });
 
 /* WHATSAPP FORM */
 document.getElementById('regForm').addEventListener('submit', (e) => {
-
     e.preventDefault();
+
+    if (typeof fbq !== "undefined") {
+        fbq('track', 'Lead');
+    }
 
     const fullname = e.target.fullname.value;
     const whatsappnumber = e.target.whatsappnumber.value;
     const email = e.target.email.value;
 
-    const message =
+    const message = 
 `Hello Dr Gideon, I want to secure my slot for the Digital skills Mentorship.
 
 My name is ${fullname}
@@ -874,10 +947,9 @@ My email is ${email}
 
 I am ready to pay the ₦2,999.`;
 
-    window.open(
-        `https://wa.me/2348142971407?text=${encodeURIComponent(message)}`,
-        '_blank'
-    );
+    const url = `https://wa.me/2348142971407?text=${encodeURIComponent(message)}`;
+
+    window.open(url, '_blank');
 });
 </script>
 
