@@ -869,10 +869,9 @@ setInterval(() => {
 /* TIMER */
 function startTimer(display) {
 
-    // 3 days in milliseconds
     const countdownTime = 3 * 24 * 60 * 60 * 1000;
 
-    // save start time so refresh doesn't reset it
+    // Keep same timer even after refresh
     let startTime = localStorage.getItem("countdownStart");
 
     if (!startTime) {
@@ -880,51 +879,49 @@ function startTimer(display) {
         localStorage.setItem("countdownStart", startTime);
     }
 
-    const endTime = parseInt(startTime) + countdownTime;
+    const endTime = Number(startTime) + countdownTime;
 
-    setInterval(() => {
+    const interval = setInterval(() => {
 
         const now = Date.now();
         const distance = endTime - now;
 
         if (distance <= 0) {
-            display.textContent = "00d : 00h : 00m : 00s";
+            clearInterval(interval);
+
+            display.textContent =
+            "00d : 00h : 00m : 00s";
+
             return;
         }
 
-        const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+        let days = Math.floor(distance / (1000 * 60 * 60 * 24));
 
-        const hours = Math.floor(
+        let hours = Math.floor(
             (distance % (1000 * 60 * 60 * 24)) /
             (1000 * 60 * 60)
         );
 
-        const minutes = Math.floor(
+        let minutes = Math.floor(
             (distance % (1000 * 60 * 60)) /
             (1000 * 60)
         );
 
-        const seconds = Math.floor(
+        let seconds = Math.floor(
             (distance % (1000 * 60)) /
             1000
         );
 
+        days = String(days).padStart(2,'0');
+        hours = String(hours).padStart(2,'0');
+        minutes = String(minutes).padStart(2,'0');
+        seconds = String(seconds).padStart(2,'0');
+
         display.textContent =
-            `${days}d : ${hours}h : ${minutes}m : ${seconds}s`;
+        `${days}d : ${hours}h : ${minutes}m : ${seconds}s`;
 
-    }, 1000);
+    },1000);
 }
-
-/* LOAD EVENTS */
-window.addEventListener('load', () => {
-    revealOnScroll();
-
-    const timerDisplay = document.querySelector('#timer');
-
-    if (timerDisplay) {
-        startTimer(timerDisplay);
-    }
-});
 
 /* WHATSAPP FORM */
 document.getElementById('regForm').addEventListener('submit', (e) => {
