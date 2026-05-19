@@ -543,7 +543,7 @@ src="https://www.facebook.com/tr?id=2174212883399284&ev=PageView&noscript=1"
 <body>
 
     <div class="urgency-bar">
-        🔥 ONLY <span id="slot-count">50</span> SPOTS AVAILABLE — Closing in: <span id="timer">12:35</span>
+        🔥 ONLY <span id="slot-count">50</span> SPOTS LEFT — Registration closes in <span id="timer">03d : 00h : 00m : 00s</span>
     </div>
 
     <section class="hero" style="text-align: center; max-width: 1000px; margin: 0 auto; color: #ffffff;">
@@ -923,19 +923,24 @@ function startTimer(display) {
     },1000);
 }
 
+/* LOAD EVENTS */ 
+window.addEventListener('load', () => { 
+    revealOnScroll(); 
+    const timerDisplay = document.querySelector('#timer'); 
+    if (timerDisplay) { startTimer(timerDisplay);
+    } 
+});
+
 /* WHATSAPP FORM */
 document.getElementById('regForm').addEventListener('submit', (e) => {
-    e.preventDefault();
 
-    if (typeof fbq !== "undefined") {
-        fbq('track', 'Lead');
-    }
+    e.preventDefault();
 
     const fullname = e.target.fullname.value;
     const whatsappnumber = e.target.whatsappnumber.value;
     const email = e.target.email.value;
 
-    const message = 
+    const message =
 `Hello Dr Gideon, I want to secure my slot for the Digital skills Mentorship.
 
 My name is ${fullname}
@@ -946,7 +951,28 @@ I am ready to pay the ₦2,999.`;
 
     const url = `https://wa.me/2348142971407?text=${encodeURIComponent(message)}`;
 
-    window.open(url, '_blank');
+    // Fire Lead event and wait for confirmation
+    if (typeof fbq !== "undefined") {
+
+        fbq('track', 'Lead', {}, {
+            eventID: Date.now(),
+
+            event_callback: function () {
+                window.open(url, '_blank');
+            }
+        });
+
+        // fallback
+        setTimeout(() => {
+            window.open(url, '_blank');
+        },1000);
+
+    } else {
+
+        window.open(url,'_blank');
+
+    }
+
 });
 </script>
 
