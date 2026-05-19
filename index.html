@@ -932,8 +932,8 @@ window.addEventListener('load', () => {
 });
 
 /* WHATSAPP FORM */
+<script>
 document.getElementById('regForm').addEventListener('submit', (e) => {
-
     e.preventDefault();
 
     const fullname = e.target.fullname.value;
@@ -951,29 +951,17 @@ I am ready to pay the ₦2,999.`;
 
     const url = `https://wa.me/2348142971407?text=${encodeURIComponent(message)}`;
 
-    // Fire Lead event and wait for confirmation
-    if (typeof fbq !== "undefined") {
-
-        fbq('track', 'Lead', {}, {
-            eventID: Date.now(),
-
-            event_callback: function () {
-                window.open(url, '_blank');
-            }
-        });
-
-        // fallback
-        setTimeout(() => {
-            window.open(url, '_blank');
-        },1000);
-
-    } else {
-
-        window.open(url,'_blank');
-
+    // STEP 1: Fire Pixel safely
+    if (typeof fbq === "function") {
+        fbq('track', 'Lead');
     }
 
+    // STEP 2: delay redirect so Meta receives event
+    setTimeout(() => {
+        window.open(url, '_blank');
+    }, 400);
 });
+</script>
 </script>
 
     <!-- chatbot script -->
