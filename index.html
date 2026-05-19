@@ -534,6 +534,8 @@ s.parentNode.insertBefore(t,s)}(window, document,'script',
 'https://connect.facebook.net/en_US/fbevents.js');
 fbq('init', '2174212883399284');
 fbq('track', 'PageView');
+
+fbq('track', 'Lead');
 </script>
 <noscript><img height="1" width="1" style="display:none"
 src="https://www.facebook.com/tr?id=2174212883399284&ev=PageView&noscript=1"
@@ -941,7 +943,7 @@ document.getElementById('regForm').addEventListener('submit', (e) => {
     const email = e.target.email.value;
 
     const message =
-`Hello Dr Gideon, I want to secure my slot for the Digital skills Mentorship.
+`Hello Dr Gideon, I want to secure my slot for the AI automation and Digital skills Mentorship.
 
 My name is ${fullname}
 My WhatsApp number is ${whatsappnumber}
@@ -951,27 +953,7 @@ I am ready to pay the ₦2,999.`;
 
     const url = `https://wa.me/2348142971407?text=${encodeURIComponent(message)}`;
 
-    // Fire Lead event and wait for confirmation
-    if (typeof fbq !== "undefined") {
-
-        fbq('track', 'Lead', {}, {
-            eventID: Date.now(),
-
-            event_callback: function () {
-                window.open(url, '_blank');
-            }
-        });
-
-        // fallback
-        setTimeout(() => {
-            window.open(url, '_blank');
-        },1000);
-
-    } else {
-
-        window.open(url,'_blank');
-
-    }
+    window.open(url,'_blank');
 
 });
 </script>
