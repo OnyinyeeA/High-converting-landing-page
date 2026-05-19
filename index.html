@@ -534,8 +534,6 @@ s.parentNode.insertBefore(t,s)}(window, document,'script',
 'https://connect.facebook.net/en_US/fbevents.js');
 fbq('init', '2174212883399284');
 fbq('track', 'PageView');
-
-fbq('track', 'Lead');
 </script>
 <noscript><img height="1" width="1" style="display:none"
 src="https://www.facebook.com/tr?id=2174212883399284&ev=PageView&noscript=1"
@@ -935,6 +933,7 @@ window.addEventListener('load', () => {
 
 /* WHATSAPP FORM */
 document.getElementById('regForm').addEventListener('submit', (e) => {
+
     e.preventDefault();
 
     const fullname = e.target.fullname.value;
@@ -951,6 +950,28 @@ My email is ${email}
 I am ready to pay the ₦2,999.`;
 
     const url = `https://wa.me/2348142971407?text=${encodeURIComponent(message)}`;
+
+    // Fire Lead event and wait for confirmation
+    if (typeof fbq !== "undefined") {
+
+        fbq('track', 'Lead', {}, {
+            eventID: Date.now(),
+
+            event_callback: function () {
+                window.open(url, '_blank');
+            }
+        });
+
+        // fallback
+        setTimeout(() => {
+            window.open(url, '_blank');
+        },1000);
+
+    } else {
+
+        window.open(url,'_blank');
+
+    }
 
 });
 </script>
