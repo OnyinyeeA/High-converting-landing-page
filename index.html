@@ -534,6 +534,8 @@ s.parentNode.insertBefore(t,s)}(window, document,'script',
 'https://connect.facebook.net/en_US/fbevents.js');
 fbq('init', '2174212883399284');
 fbq('track', 'PageView');
+
+fbq('track', 'Lead');
 </script>
 <noscript><img height="1" width="1" style="display:none"
 src="https://www.facebook.com/tr?id=2174212883399284&ev=PageView&noscript=1"
@@ -950,15 +952,6 @@ I am ready to pay the ₦2,999.`;
 
     const url = `https://wa.me/2348142971407?text=${encodeURIComponent(message)}`;
 
-    // STEP 1: Fire Pixel safely
-    if (typeof fbq === "function") {
-        fbq('track', 'Lead');
-    }
-
-    // STEP 2: delay redirect so Meta receives event
-    setTimeout(() => {
-        window.open(url, '_blank');
-    }, 400);
 });
 </script>
 
