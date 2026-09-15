@@ -483,6 +483,14 @@ input{
     }
 }
 
+.stand-alone{
+    width: 100%; 
+    height: 500px; 
+    border-radius: 10px; 
+    object-fit: cover; 
+    margin-bottom: 20px;
+}
+
 /* ===== SMALL PHONES ===== */
 @media (max-width:480px){
 
@@ -540,6 +548,13 @@ src="https://www.facebook.com/tr?id=2174212883399284&ev=PageView&noscript=1"
                     - Coach. Gideon Alugbue
                 </blockquote>
             </figure>
+            <br>
+
+            <div class="cta-wrapper">
+                <a href="#join" class="cta-btn" style="animation:pulse 1.5s infinite;">
+                    SAVE MY SEAT
+                </a>
+            </div>  <br> <br>  
             <img class="hero-main-image" src="images/IMG-20260507-WA0000.jpg" alt="Before Image" style=" object-fit: cover; border-radius: 12px; border: 1px solid rgba(255,255,255,0.1); transition: transform 0.3s ease; margin-top: 20px;">
 
             <div class="profile-card">
@@ -574,8 +589,8 @@ src="https://www.facebook.com/tr?id=2174212883399284&ev=PageView&noscript=1"
 <!-- animated blinking button -->
 
             <div class="cta-wrapper">
-                <a href="#form" class="cta-btn" style="animation:pulse 1.5s infinite;">
-                    I’M READY TO LEARN!
+                <a href="#join" class="cta-btn" style="animation:pulse 1.5s infinite;">
+                    SAVE MY SPOT
                 </a> <br><br>
                 <span style="color:#ffb3b3; font-weight:600;">
                     ⚠️ WARNING: Only a few slots left
@@ -592,10 +607,9 @@ src="https://www.facebook.com/tr?id=2174212883399284&ev=PageView&noscript=1"
                 <div class="label"><span>Before</span></div>
                 
                 <!-- stand alone image -->
-                <img style="width: 100%; height: 500px; border-radius: 10px; object-fit: cover; margin-bottom: 20px;" src="images/IMG-20260427-WA0007.jpg" alt="Before Image">
+                <img id="stand-alone" src="images/IMG-20260427-WA0004.jpg" alt="Before Image">
 
                 <div class="before-after-grid">
-                    <img class="img-placeholder" src="images/IMG-20260427-WA0004.jpg" alt="Before Image">
                     <img class="img-placeholder" src="images/IMG-20260427-WA0005.jpg" alt="Before Image">
                     <img class="img-placeholder" src="images/IMG-20260511-WA0014.jpg" alt="Before Image">
                     <img class="img-placeholder" src="images/IMG-20260507-WA0001.jpg" alt="Before Image">
@@ -627,20 +641,24 @@ src="https://www.facebook.com/tr?id=2174212883399284&ev=PageView&noscript=1"
 
         <div class="proof-column">
             <div class="label"><span>After</span></div>
-            <div>
-                <!-- stand alone image -->
-                <img style="width: 100%; height: 500px; border-radius: 10px; object-fit: cover; margin-bottom: 20px;" src="images/IMG-20260504-WA0021.jpg" alt="After Image">
-            </div>
+
+            <!-- stand alone image -->
+                <img id="stand-alone" src="images/IMG-20260915-WA0002.jpg" alt="After Image">
+
 
             <!-- grid images -->
             <div class="before-after-grid"> 
                 <img class="img-placeholder" src="images/IMG-20260408-WA0003.jpg" alt="After Image">
-                <img class="img-placeholder" src="images/IMG-20260408-WA0001.jpg" alt="After Image">
-                <img class="img-placeholder" src="images/IMG-20260418-WA0000_1.jpg" alt="After Image">
                 <img class="img-placeholder" src="images/IMG-20260402-WA0003.jpg" alt="After Image">
+                <img class="img-placeholder" src="images/IMG-20260408-WA0001.jpg" alt="After Image">
             </div>
         </div>
     </div>
+<br> <br>
+    <div class="cta-wrapper">
+                <a href="#join" class="cta-btn" style="animation:pulse 1.5s infinite;">
+                    SAVE MY SEAT
+                </a> <br><br>
 
     <div class="info-div" style="margin-top: 50px;">
         <h2 style="color: var(--primary-blue);">This opportunity is not for you if:</h2>
@@ -664,8 +682,8 @@ src="https://www.facebook.com/tr?id=2174212883399284&ev=PageView&noscript=1"
         </ul>
 
         <div class="cta-wrapper">
-                <a href="#form" class="cta-btn" style="animation:pulse 1.5s infinite;">
-                    I’M READY TO LEARN!
+                <a href="#join" class="cta-btn" style="animation:pulse 1.5s infinite;">
+                    SAVE MY SEAT
                 </a> <br><br>
                 <span style="color:#ffb3b3; font-weight:600;">
                     ⚠️ WARNING: Only a few slots left
@@ -745,37 +763,15 @@ src="https://www.facebook.com/tr?id=2174212883399284&ev=PageView&noscript=1"
             <p>How to secure international clients and build systems that ensure your online income is stable for years to come.</p>
         </div>
     </div>
-</section>
 
-    <section class="form-section" id="form">
-        <div style="text-align: center; margin-bottom: 30px;">
-            <h2 style="color: white;">RESERVE YOUR MENTORSHIP SLOT NOW!</h2>
-            <p>ONLY 50 SLOTS! Running fast!</p>
-        </div>
-        <div style="max-width:600px;margin:0 auto 20px;text-align:center;color:white;">
-    <p style="font-size:1.1rem;">
-        👨‍⚕️ Trusted by students, professionals & career switchers across Nigeria
-    </p>
-    <p style="opacity:0.8;">
-        Secure payment + direct WhatsApp onboarding
-    </p>
-</div>
-        <div class="form-card">
-            <h3>Secure Your Seat</h3>
-            <form id="regForm">
-                <div class="input-row">
-                    <input type="text" name="fullname" placeholder="FULL NAME" required>
-                    <input type="tel" name="whatsappnumber" placeholder="WHATSAPP NUMBER" required>
-                </div>
-                <input type="email" name="email" placeholder="EMAIL ADDRESS" style="margin-bottom: 15px;" required>
-                
-                <div class="checkbox-row">
-                    <input type="checkbox" required>
-                    <span>Yes, I am ready to pay ₦2,999 immediately to secure my spot.</span>
-                </div>
-                
-                <button type="submit" class="submit-btn">SEND TO DR GIDEON VIA WHATSAPP</button>
-            </form>
+    <section>
+        <div class="cta-wrapper" id="join">
+            <a href="https://chat.whatsapp.com/B6opgSGJauWro2YYuo16" class="cta-btn" style="animation:pulse 1.5s infinite;">
+                I’M READY! SAVE MY SEAT NOW
+            </a> <br><br>
+            <span style="color:#ffb3b3; font-weight:600;">
+                ⚠️ WARNING: Only a few slots left
+            </span>
         </div>
     </section>
 
@@ -858,30 +854,6 @@ window.addEventListener('load', () => {
     const timerDisplay = document.querySelector('#timer'); 
     if (timerDisplay) { startTimer(timerDisplay);
     } 
-});
-
-/* WHATSAPP FORM */
-document.getElementById('regForm').addEventListener('submit', (e) => {
-
-    e.preventDefault();
-
-    const fullname = e.target.fullname.value;
-    const whatsappnumber = e.target.whatsappnumber.value;
-    const email = e.target.email.value;
-
-    const message =
-`Hello Dr Gideon, I want to secure my slot for the AI automation and Digital skills Mentorship.
-
-My name is ${fullname}
-My WhatsApp number is ${whatsappnumber}
-My email is ${email}
-
-I am ready to pay the ₦2,999.`;
-
-    const url = `https://wa.me/2348142971407?text=${encodeURIComponent(message)}`;
-
-    window.open(url,'_blank');
-
 });
 </script>
 </body>
