@@ -531,7 +531,7 @@ src="https://www.facebook.com/tr?id=2174212883399284&ev=PageView&noscript=1"
 <body>
 
     <div class="urgency-bar">
-        🔥 ONLY <span id="slot-count">15</span> SPOTS LEFT — Registration closes in <span id="timer">03d : 00h : 00m : 00s</span>
+        🔥 LIMITED SPOTS LEFT — Registration closes in <span id="timer">02d : 00h : 00m : 00s</span>
     </div>
 
     <section class="hero" style="text-align: center; max-width: 1000px; margin: 0 auto; color: #ffffff;">
@@ -802,32 +802,10 @@ function revealOnScroll() {
 
 window.addEventListener("scroll", revealOnScroll);
 
-// SLOT COUNTDOWN that decreases every 1min to show urgency and scarcity to encourage people to secure their slot immediately. it will reset to 15 every 24hrs
-function startSlotCountdown() {
-    const slotCountElement = document.getElementById('slot-count');
-    let slotsLeft = parseInt(slotCountElement.innerText);
-
-    function updateSlotCount() {
-        if (slotsLeft > 0) {
-            slotsLeft--;
-            slotCountElement.innerText = slotsLeft;
-        }
-    }
-
-    // Decrease slot count every 1 minute
-    setInterval(updateSlotCount, 60000);
-
-    // Reset slot count to 15 every 24 hours
-    setInterval(() => {
-        slotsLeft = 15;
-        slotCountElement.innerText = slotsLeft;
-    }, 24 * 60 * 60 * 1000);
-}
-
-// TIMER COUNTDOWN for 24hrs that resets everyday visible in the urgency bar to all at the same time not based on when they land on the page
+// countdown
 function startTimer(display) {
     const targetTime = new Date();
-    targetTime.setHours(23, 59, 59, 999); // Set to end of the day
+    targetTime.setDate(targetTime.getDate()+7);
 
     function updateTimer() {
         const now = new Date();
